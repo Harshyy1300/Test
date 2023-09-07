@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Preferences</title>
+    <style>
+        /* Your CSS styles go here */
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('harshpopley.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: white; /* Set the font color of the title to white */
+        }
+
+        .food-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Popout styles */
+        .popout {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            font-size: 20px;
+            color: orange;
+        }
+
+        .address {
+            cursor: pointer;
+            color: blue;
+        }
+
+        /* Back button style */
+        .back-button {
+            background-color: orange;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Preferences</h1> <!-- Updated heading -->
+        <div class="buttons">
+            <button class="food-button" id="veg-button">Veg</button>
+            <button class="food-button" id="non-veg-button">Non Veg</button>
+            <button class="food-button" id="organic-button">Organic</button>
+            <button class="food-button" id="jain-button">Jain</button>
+            <button class="food-button" id="punjabi-button">Punjabi</button>
+            <button class="food-button" id="indori-button">Indori</button>
+            <button class="food-button" id="bengali-button">Bengali</button>
+            <button class="food-button" id="marathi-button">Marathi</button>
+        </div>
+        <!-- Popout content for Veg -->
+        <div class="popout" id="veg-popout">
+            <p>Kebabsville <span class="address">(Click for Address)</span> 5 star rating</p>
+            <p>Shreemaya <span class="address">(Click for Address)</span> 4.5 star rating</p>
+            <p>Sayaji Hotel <span class="address">(Click for Address)</span> 4 star rating</p>
+            <button class="back-button" id="veg-back-button">BACK</button>
+        </div>
+        <!-- Popout content for Non Veg -->
+        <div class="popout" id="non-veg-popout">
+            <p>Non-Veg Restaurant 1 <span class="address">(Click for Address)</span> 5 star rating</p>
+            <p>Non-Veg Restaurant 2 <span class="address">(Click for Address)</span> 4.5 star rating</p>
+            <button class="back-button" id="non-veg-back-button">BACK</button>
+        </div>
+        <!-- Popout content for Organic -->
+        <div class="popout" id="organic-popout">
+            <p>Organic Restaurant 1 <span class="address">(Click for Address)</span> 4 star rating</p>
+            <p>Organic Restaurant 2 <span class="address">(Click for Address)</span> 3.5 star rating</p>
+            <button class="back-button" id="organic-back-button">BACK</button>
+        </div>
+        <!-- Popout content for Jain -->
+        <div class="popout" id="jain-popout">
+            <p>Jain Restaurant 1 <span class="address">(Click for Address)</span> 4 star rating</p>
+            <p>Jain Restaurant 2 <span class="address">(Click for Address)</span> 3.5 star rating</p>
+            <button class="back-button" id="jain-back-button">BACK</button>
+        </div>
+        <!-- Popout content for Punjabi -->
+        <div class="popout" id="punjabi-popout">
+            <p>Punjabi Restaurant 1 <span class="address">(Click for Address)</span> 4 star rating</p>
+            <p>Punjabi Restaurant 2 <span class="address">(Click for Address)</span> 3.5 star rating</p>
+            <button class="back-button" id="punjabi-back-button">BACK</button>
+        </div>
+        <!-- Popout content for Indori -->
+        <div class="popout" id="indori-popout">
+            <p>Indori Restaurant 1 <span class="address">(Click for Address)</span> 4 star rating</p>
+            <p>Indori Restaurant 2 <span class="address">(Click for Address)</span> 3.5 star rating</p>
+            <button class="back-button" id="indori-back-button">BACK</button>
+        </div>
+        <!-- Popout content for Bengali -->
+        <div class="popout" id="bengali-popout">
+            <p>Bengali Restaurant 1 <span class="address">(Click for Address)</span> 4 star rating</p>
+            <p>Bengali Restaurant 2 <span class="address">(Click for Address)</span> 3.5 star rating</p>
+            <button class="back-button" id="bengali-back-button">BACK</button>
+        </div>
+        <!-- Popout content for Marathi -->
+        <div class="popout" id="marathi-popout">
+            <p>Marathi Restaurant 1 <span class="address">(Click for Address)</span> 4 star rating</p>
+            <p>Marathi Restaurant 2 <span class="address">(Click for Address)</span> 3.5 star rating</p>
+            <button class="back-button" id="marathi-back-button">BACK</button>
+        </div>
+    </div>
+    <script>
+        // JavaScript to handle popouts for each button
+        const vegButton = document.getElementById("veg-button");
+        const nonVegButton = document.getElementById("non-veg-button");
+        const organicButton = document.getElementById("organic-button");
+        const jainButton = document.getElementById("jain-button");
+        const punjabiButton = document.getElementById("punjabi-button");
+        const indoriButton = document.getElementById("indori-button");
+        const bengaliButton = document.getElementById("bengali-button");
+        const marathiButton = document.getElementById("marathi-button");
+
+        const vegPopout = document.getElementById("veg-popout");
+        const nonVegPopout = document.getElementById("non-veg-popout");
+        const organicPopout = document.getElementById("organic-popout");
+        const jainPopout = document.getElementById("jain-popout");
+        const punjabiPopout = document.getElementById("punjabi-popout");
+        const indoriPopout = document.getElementById("indori-popout");
+        const bengaliPopout = document.getElementById("bengali-popout");
+        const marathiPopout = document.getElementById("marathi-popout");
+
+        const vegBackButton = document.getElementById("veg-back-button");
+        const nonVegBackButton = document.getElementById("non-veg-back-button");
+        const organicBackButton = document.getElementById("organic-back-button");
+        const jainBackButton = document.getElementById("jain-back-button");
+        const punjabiBackButton = document.getElementById("punjabi-back-button");
+        const indoriBackButton = document.getElementById("indori-back-button");
+        const bengaliBackButton = document.getElementById("bengali-back-button");
+        const marathiBackButton = document.getElementById("marathi-back-button");
+
+        vegButton.addEventListener("click", () => {
+            vegPopout.style.display = "block";
+        });
+
+        nonVegButton.addEventListener("click", () => {
+            nonVegPopout.style.display = "block";
+        });
+
+        organicButton.addEventListener("click", () => {
+            organicPopout.style.display = "block";
+        });
+
+        jainButton.addEventListener("click", () => {
+            jainPopout.style.display = "block";
+        });
+
+        punjabiButton.addEventListener("click", () => {
+            punjabiPopout.style.display = "block";
+        });
+
+        indoriButton.addEventListener("click", () => {
+            indoriPopout.style.display = "block";
+        });
+
+        bengaliButton.addEventListener("click", () => {
+            bengaliPopout.style.display = "block";
+        });
+
+        marathiButton.addEventListener("click", () => {
+            marathiPopout.style.display = "block";
+        });
+
+        // Back buttons to close popouts
+        vegBackButton.addEventListener("click", () => {
+            vegPopout.style.display = "none";
+        });
+
+        nonVegBackButton.addEventListener("click", () => {
+            nonVegPopout.style.display = "none";
+        });
+
+        organicBackButton.addEventListener("click", () => {
+            organicPopout.style.display = "none";
+        });
+
+        jainBackButton.addEventListener("click", () => {
+            jainPopout.style.display = "none";
+        });
+
+        punjabiBackButton.addEventListener("click", () => {
+            punjabiPopout.style.display = "none";
+        });
+
+        indoriBackButton.addEventListener("click", () => {
+            indoriPopout.style.display = "none";
+        });
+
+        bengaliBackButton.addEventListener("click", () => {
+            bengaliPopout.style.display = "none";
+        });
+
+        marathiBackButton.addEventListener("click", () => {
+            marathiPopout.style.display = "none";
+        });
+    </script>
+</body>
+</html>
